@@ -1,0 +1,19 @@
+# Supported Python: 3.10-3.12. mediapipe 0.10.14 needs the legacy mp.solutions API.
+
+# Core vision/runtime dependencies
+numpy==1.26.4
+mediapipe==0.10.14
+opencv-python==4.9.0.80
+pynput==1.7.7
+psutil==6.1.1
+
+# Optional demo-model training tool
+scikit-learn==1.5.2
+joblib==1.4.2
+
+# Test suite
+pytest==8.3.4
+
+# Platform-specific active-window context lookup
+pywin32==308; sys_platform == "win32"
+pyobjc-framework-Cocoa==10.3; sys_platform == "darwin"
