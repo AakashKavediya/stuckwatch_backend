@@ -1,0 +1,12 @@
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\serde-626b9fa84dd4f88c.d: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\integer128.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\mod.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\de.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\ser.rs C:\Users\Aakash\ Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\build\serde-cf47444672030870\out/private.rs
+
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\libserde-626b9fa84dd4f88c.rmeta: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\integer128.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\mod.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\de.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\ser.rs C:\Users\Aakash\ Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\build\serde-cf47444672030870\out/private.rs
+
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\lib.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\integer128.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\mod.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\de.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.229\src\private\ser.rs:
+C:\Users\Aakash\ Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\build\serde-cf47444672030870\out/private.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\Aakash Kavediya\\Downloads\\stuckwatch_backend\\stuckwatch_backend\\src-tauri\\target\\debug\\build\\serde-cf47444672030870\\out

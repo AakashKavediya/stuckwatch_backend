@@ -1,0 +1,12 @@
+import { invoke } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
+let nudge = null;
+const message = document.getElementById("message");
+const actions = document.getElementById("actions");
+const followup = document.getElementById("followup");
+const send = (choice) => { if (!nudge) return; invoke("send_backend_command", { command: JSON.stringify({ cmd: choice === "pause_today" ? "pause_today" : "nudge_response", id: nudge.id, choice }) }); invoke("nudge_choice", { choice }); if (choice !== "tiny_step") setTimeout(() => window.close(), 350); };
+listen("nudge-payload", ({ payload }) => { nudge = typeof payload === "string" ? JSON.parse(payload) : payload; message.textContent = nudge.message; setTimeout(() => window.close(), 60000); });
+listen("backend-event", ({ payload }) => { const event = typeof payload === "string" ? JSON.parse(payload) : payload; if (event.type === "tiny_step") { message.textContent = event.text; followup.innerHTML = '<button id="smaller" class="link-button">Make it smaller</button> · <button id="done" class="link-button">Done</button>'; document.getElementById("smaller").onclick = () => send("change"); document.getElementById("done").onclick = () => window.close(); } if (event.type === "rest_started") { message.textContent = "Break started, back in 10 min"; followup.textContent = "A quiet break is underway."; } });
+actions.addEventListener("click", (e) => { if (e.target.dataset.choice) send(e.target.dataset.choice); });
+document.querySelectorAll("[data-choice]").forEach((el) => el.addEventListener("click", () => send(el.dataset.choice)));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") send("not_now"); });

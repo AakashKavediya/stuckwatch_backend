@@ -104,7 +104,7 @@ class Engine:
         )
         self.interventions = InterventionEngine(
             sensitivity=self.config.nudge.current_sensitivity,
-            sustained_seconds=120.0,
+            sustained_seconds=self.config.nudge.sustained_seconds,
             max_nudges_per_day=3,
             on_adaptation=self._on_intervention_adaptation,
         )
@@ -141,6 +141,7 @@ class Engine:
             self._face_detected = False
         if status is not None:
             self._vision_status = status
+            self._vision_detail = ""
 
     def start(self, autostart_monitoring: bool = False) -> None:
         """Start background threads, register signal handlers, and enter main loop."""
@@ -262,6 +263,7 @@ class Engine:
                 if not success:
                     if self._vision_status not in {"no_camera", "camera_busy", "error"}:
                         self._vision_status = "no_camera"
+                        self._vision_detail = "Camera could not be opened."
                 else:
                     self._vision_status = "warming_up"
                     self._vision_detail = "Camera opened; collecting enough face data."
@@ -330,6 +332,35 @@ class Engine:
                 self._emit_current_status()
             else:
                 self.ipc.emit_ack("set_mode", False, f"Invalid mode '{new_mode}'")
+
+        elif cmd == "demo_mode":
+            enabled = bool(data.get("enabled", False))
+            self.interventions.set_demo_mode(enabled)
+            self.ipc.emit_ack("demo_mode", True, details={"demo_mode": enabled})
+            self._emit_current_status()
+
+        elif cmd == "demo_scenario":
+            scenario = str(data.get("scenario", "")).strip().lower()
+            if scenario in ("stuck_doc", "watching_video", "busy_typing"):
+                self.config.mode = "simulate"
+                self.simulator.scenario = scenario
+                self.simulator.reset()
+                self.state = "monitoring"
+                self.paused_until = None
+                self.interventions.reset()
+                self.ipc.emit_ack("demo_scenario", True, details={"scenario": scenario})
+                self._emit_current_status()
+            else:
+                self.ipc.emit_ack("demo_scenario", False, f"Unknown scenario '{scenario}'")
+
+        elif cmd == "reset_demo":
+            self.simulator.reset()
+            self.interventions.reset()
+            self.paused_until = None
+            if self.state == "paused":
+                self.state = "monitoring"
+            self.ipc.emit_ack("reset_demo", True)
+            self._emit_current_status()
 
         elif cmd == "start":
             if self.state in ("idle", "stopped"):
@@ -652,6 +683,7 @@ class Engine:
                 face_detected = syn.face_detected
                 is_fullscreen = syn.is_fullscreen
                 self._vision_status = "active"
+                self._vision_detail = "Synthetic demo signals; no camera frames are used."
 
             # 4. Handle Calibration Mode
             if self.state == "calibrating":
@@ -686,6 +718,16 @@ class Engine:
                 mode=self.config.mode,
                 face_detected=face_detected,
             )
+            if self.interventions.demo_mode and is_simulated:
+                if self.simulator.scenario == "stuck_doc":
+                    stuck_likelihood = min(0.95, 0.20 + (idle_sec / 5.0) * 0.75)
+                    reasons = [
+                        "the document has been still with no recent typing",
+                        "gaze appears unusually steady",
+                    ]
+                elif self.simulator.scenario == "watching_video":
+                    stuck_likelihood = min(0.72, 0.25 + (idle_sec / 20.0) * 0.45)
+                    reasons = ["the screen has been still while gaze stays on it"]
             self._latest_signals = {
                 "idle_seconds": idle_sec,
                 "typing_rate": typing_rate,

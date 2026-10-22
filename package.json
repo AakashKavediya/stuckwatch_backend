@@ -1,0 +1,14 @@
+{
+  "name": "stuckwatch-controller",
+  "private": true,
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.1.0"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.1.0",
+    "@tauri-apps/plugin-notification": "^2.1.0"
+  }
+}

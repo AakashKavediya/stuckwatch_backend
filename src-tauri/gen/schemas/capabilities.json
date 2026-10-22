@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Default controller permissions","local":true,"windows":["main","nudge"],"permissions":["core:default","notification:default"]}}

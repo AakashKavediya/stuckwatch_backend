@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "stuckwatch controller",
+  "version": "0.1.0",
+  "identifier": "com.stuckwatch.controller",
+  "build": { "frontendDist": "../ui" },
+  "app": { "windows": [{ "label": "main", "title": "stuckwatch controller", "width": 1100, "height": 850 }], "security": { "csp": null } },
+  "bundle": { "active": false }
+}

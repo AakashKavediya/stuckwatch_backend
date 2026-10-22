@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>stuckwatch controller</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">LOCAL-ONLY COMPANION</p>
+        <h1>stuckwatch <span id="demoBadge" class="badge demo hidden">DEMO</span></h1>
+        <p class="muted">Possible indicators, never assumptions.</p>
+      </div>
+      <label class="toggle"><input id="demoMode" type="checkbox"><span>Demo mode</span></label>
+    </header>
+
+    <section class="status-strip" aria-label="Current status">
+      <span id="cameraBadge" class="badge">Camera: OFF</span>
+      <span id="consentBadge" class="badge">Consent: not granted</span>
+      <span id="pauseBadge" class="badge hidden"></span>
+      <span id="stateBadge" class="badge">idle</span>
+    </section>
+
+    <section class="grid">
+      <article class="card score-card">
+        <div class="card-title"><h2>Possible stuck</h2><strong id="score">0%</strong></div>
+        <div class="meter"><div id="meterFill" class="meter-fill calm"></div></div>
+        <p id="scoreBand" class="band calm">calm</p>
+        <p id="why" class="why">Waiting for signals.</p>
+        <h3>Possible indicators</h3><ul id="reasons"><li>None yet</li></ul>
+        <p id="suppressed" class="suppressed hidden">Suppressed: video player in front</p>
+      </article>
+      <article class="card">
+        <div class="card-title"><h2>Live signals</h2><span id="mode">mode: —</span></div>
+        <dl class="metrics">
+          <div><dt>State</dt><dd id="state">—</dd></div>
+          <div><dt>Camera</dt><dd id="vision">—</dd></div>
+          <div><dt>Face detected</dt><dd id="face">—</dd></div>
+          <div><dt>Blink rate</dt><dd id="blink">—</dd></div>
+          <div><dt>Gaze stability</dt><dd id="gaze">—</dd></div>
+          <div><dt>Idle seconds</dt><dd id="idle">—</dd></div>
+          <div><dt>Typing rate</dt><dd id="typing">—</dd></div>
+          <div><dt>App switches/min</dt><dd id="switches">—</dd></div>
+          <div><dt>App category</dt><dd id="category">—</dd></div>
+        </dl>
+        <p id="visionDetail" class="muted">No camera data.</p>
+        <button id="consent" class="secondary">Enable camera (consent)</button>
+      </article>
+    </section>
+
+    <section class="card demo-controls">
+      <div class="card-title"><h2>Demo scenarios</h2><button id="reset" class="secondary">Reset</button></div>
+      <p class="muted">The scripted signals run locally; no video is displayed or stored.</p>
+      <div class="scenario-buttons">
+        <button data-scenario="stuck_doc">Simulate: frozen at blank document</button>
+        <button data-scenario="watching_video">Simulate: watching a video</button>
+        <button data-scenario="busy_typing">Simulate: busy typing</button>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="card"><h2>Nudge history</h2><ul id="history" class="history"><li>No nudges yet.</li></ul></article>
+      <article class="card"><h2>Controller log</h2><pre id="log" class="log" aria-live="polite"></pre></article>
+    </section>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

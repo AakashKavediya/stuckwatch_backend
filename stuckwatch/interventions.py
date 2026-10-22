@@ -49,6 +49,23 @@ class InterventionEngine:
         self._consecutive_quiet = 0
         self._adapted = False
         self._active_category = "unknown"
+        self.demo_mode = False
+
+    def set_demo_mode(self, enabled: bool) -> None:
+        self.demo_mode = enabled
+        self.sustained_seconds = 10.0 if enabled else 120.0
+        self._cooldown_until = 0.0
+        if enabled:
+            self._last_nudge_time = -float("inf")
+
+    def reset(self) -> None:
+        self._above_since = None
+        self._cooldown_until = 0.0
+        self._rest_until = 0.0
+        self._active_id = None
+        self._active_time = None
+        self._nudge_times.clear()
+        self._last_nudge_time = -float("inf")
 
     def set_sensitivity(self, value: str) -> bool:
         if value not in THRESHOLDS:
@@ -81,8 +98,10 @@ class InterventionEngine:
         protected = app_category in PROTECTED or fullscreen
         blocked = paused or self.is_resting(current) or protected
         blocked = blocked or current < self._cooldown_until
-        blocked = blocked or current - self._last_nudge_time < 1200
-        blocked = blocked or len(self._nudge_times) >= self.max_nudges_per_day
+        blocked = blocked or current - self._last_nudge_time < (30 if self.demo_mode else 1200)
+        blocked = blocked or (
+            not self.demo_mode and len(self._nudge_times) >= self.max_nudges_per_day
+        )
         if blocked or score < THRESHOLDS[self.sensitivity]:
             self._above_since = None
             return None
@@ -118,25 +137,25 @@ class InterventionEngine:
         self._active_id = None
         self._active_time = None
         if choice == "tiny_step":
-            self._cooldown_until = current + 120
+            self._cooldown_until = current + (30 if self.demo_mode else 120)
             self._consecutive_quiet = 0
             return {"type": "tiny_step", "text": STEPS[self._active_category]}
         if choice == "change":
-            self._cooldown_until = current + 120
+            self._cooldown_until = current + (30 if self.demo_mode else 120)
             return {"type": "tiny_step", "text": SMALLER_STEPS[self._active_category]}
         if choice == "rest":
-            self._rest_until = current + 600
+            self._rest_until = current + (30 if self.demo_mode else 600)
             self._cooldown_until = self._rest_until
             self._consecutive_quiet = 0
             return {"type": "rest_started", "minutes": 10}
         if choice == "i_am_fine":
-            self._cooldown_until = current + 5400
+            self._cooldown_until = current + (30 if self.demo_mode else 5400)
             self._consecutive_quiet += 1
             self._lower_sensitivity()
             self._adapt_if_needed()
             return None
         if choice == "not_now":
-            self._cooldown_until = current + 2700
+            self._cooldown_until = current + (30 if self.demo_mode else 2700)
             self._consecutive_quiet += 1
             self._adapt_if_needed()
         return None

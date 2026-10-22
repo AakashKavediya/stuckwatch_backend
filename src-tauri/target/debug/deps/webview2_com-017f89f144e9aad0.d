@@ -1,0 +1,8 @@
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\webview2_com-017f89f144e9aad0.d: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\callback.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\options.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\pwstr.rs
+
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\libwebview2_com-017f89f144e9aad0.rmeta: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\callback.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\options.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\pwstr.rs
+
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\lib.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\callback.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\options.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\webview2-com-0.39.1\src\pwstr.rs:

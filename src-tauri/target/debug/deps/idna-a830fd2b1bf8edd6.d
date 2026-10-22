@@ -1,0 +1,10 @@
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\idna-a830fd2b1bf8edd6.d: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\deprecated.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\punycode.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\uts46.rs
+
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\libidna-a830fd2b1bf8edd6.rlib: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\deprecated.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\punycode.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\uts46.rs
+
+C:\Users\Aakash Kavediya\Downloads\stuckwatch_backend\stuckwatch_backend\src-tauri\target\debug\deps\libidna-a830fd2b1bf8edd6.rmeta: C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\lib.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\deprecated.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\punycode.rs C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\uts46.rs
+
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\lib.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\deprecated.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\punycode.rs:
+C:\Users\Aakash\ Kavediya\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\idna-1.1.0\src\uts46.rs:

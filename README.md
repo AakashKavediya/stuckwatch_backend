@@ -85,6 +85,35 @@ The setup requires Python 3.10, 3.11, or 3.12. If setup reports that
 interpreter and run `python setup_env.py` again. MediaPipe 0.10.14 is required
 because this backend uses the legacy `mp.solutions.face_mesh` API.
 
+### Controller UI demo
+
+The repository includes a minimal Tauri controller in `ui/`. From the repository
+root, run:
+
+```powershell
+npm install
+npm run tauri dev
+```
+
+The controller starts the backend in local simulation mode. Turn on **Demo mode**
+and use the three scenario buttons. Demo mode uses a 10-second sustain window,
+30-second cooldown, and ignores the daily cap; the badge makes this explicit.
+The camera consent dialog is separate and the preview-free indicator only exposes
+coarse numeric signals.
+
+30-second judge script:
+
+1. Turn on **Demo mode** and click **Simulate: frozen at blank document**. The
+   meter rises, possible indicators appear, and within about 10–15 seconds a
+   bottom-right nudge card plus an OS notification appears.
+2. Click **Tiny first step** and observe the returned small action, then click
+   **Done**. The controller's nudge history records the choice.
+3. Click **Reset**, then **Simulate: watching a video**. The meter may rise, but
+   the visible “Suppressed: video player in front” label confirms no nudge.
+4. Click **Reset**, then **Simulate: busy typing**. The meter stays calm and no
+   nudge is emitted. **Not now**, **I'm fine**, and **Pause for today** are also
+   visible response paths; Escape maps to **Not now**.
+
 ### Manual Setup
 
 #### Windows (PowerShell)
